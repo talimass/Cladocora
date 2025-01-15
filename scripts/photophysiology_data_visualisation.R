@@ -1,10 +1,13 @@
-## Eilat photophysiology
+## Cladocora photophysiology
 options(scipen = 999)
 
 install.packages("tidyverse")
 library(tidyverse)
 
-fire.data <- read_csv("/Users/talimass/Desktop/Cladocora_Leonit _and _Naharia.csv")## you need to path this to your data file
+install.packages("ggpubr")
+library(ggpubr)
+
+fire.data <- read_csv("/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Cladocora/Data/FIRe Sep 2023/Cladocora_Leonit _and _Naharia.csv")## you need to path this to your data file
 
 
 #FIRe Data
@@ -92,3 +95,4 @@ p <- ggplot(data = p_no_outlier,aes(x= depth, y=p, fill= Species)) +
 p
 
 ggarrange(fvfm, sigma, pmax, p)
+
