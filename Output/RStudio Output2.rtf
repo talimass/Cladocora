@@ -1,0 +1,303 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 > var(Fire_Israel$PAR_Avg[Fire_Israel$Site==\'93Leonid\'94])\
+Error: unexpected input in "var(Fire_Israel$PAR_Avg[Fire_Israel$Site==\'93"\
+> library(readxl)\
+> Fire_Israel <- read_excel("Documents/UHaifa_Zuckerman/Cladocora_Akko/FIRe/Fire_Israel.xlsx", \
++     sheet = "Avg_stats_graphing", col_types = c("numeric", \
++         "text", "numeric", "text", "text", \
++         "numeric", "numeric", "numeric", \
++         "numeric", "numeric", "numeric", \
++         "numeric", "numeric", "numeric"))\
+Warning messages:                                                  \
+1: Expecting numeric in G2 / R2C7: got a date \
+2: Expecting numeric in G3 / R3C7: got a date \
+3: Expecting numeric in G4 / R4C7: got a date \
+4: Expecting numeric in G5 / R5C7: got a date \
+5: Expecting numeric in G6 / R6C7: got a date \
+6: Expecting numeric in G7 / R7C7: got a date \
+7: Expecting numeric in G8 / R8C7: got a date \
+8: Expecting numeric in G9 / R9C7: got a date \
+9: Expecting numeric in G10 / R10C7: got a date \
+> View(Fire_Israel)\
+> var(Fire_Israel$PAR_Avg[Fire_Israel$Depth==\'9330\'94])\
+Error: unexpected input in "var(Fire_Israel$PAR_Avg[Fire_Israel$Depth==\'93"\
+> var(Fire_Israel$PAR_Avg[Fire_Israel$Depth=="30"])\
+[1] 6695.413\
+> fligner.test(Fire_Israel$PAR_Avg~Fire_Israel$Depth)\
+\
+	Fligner-Killeen test of homogeneity of variances\
+\
+data:  Fire_Israel$PAR_Avg by Fire_Israel$Depth\
+Fligner-Killeen:med chi-squared = 1.3174, df = 1, p-value =\
+0.2511\
+\
+> fligner.test(Fire_Israel$T_Avg~Fire_Israel$Depth)\
+\
+	Fligner-Killeen test of homogeneity of variances\
+\
+data:  Fire_Israel$T_Avg by Fire_Israel$Depth\
+Fligner-Killeen:med chi-squared = 1.2968, df = 1, p-value =\
+0.2548\
+\
+> fligner.test(Fire_Israel$FvFm_Avg~Fire_Israel$Depth)\
+\
+	Fligner-Killeen test of homogeneity of variances\
+\
+data:  Fire_Israel$FvFm_Avg by Fire_Israel$Depth\
+Fligner-Killeen:med chi-squared = 3.7162, df = 1, p-value =\
+0.05389\
+\
+> fligner.test(Fire_Israel$Sigma_Avg~Fire_Israel$Depth)\
+\
+	Fligner-Killeen test of homogeneity of variances\
+\
+data:  Fire_Israel$Sigma_Avg by Fire_Israel$Depth\
+Fligner-Killeen:med chi-squared = 0.0085926, df = 1, p-value\
+= 0.9261\
+\
+> fligner.test(Fire_Israel$p_Avg~Fire_Israel$Depth)\
+\
+	Fligner-Killeen test of homogeneity of variances\
+\
+data:  Fire_Israel$p_Avg by Fire_Israel$Depth\
+Fligner-Killeen:med chi-squared = 1.3174, df = 1, p-value =\
+0.2511\
+\
+> fligner.test(Fire_Israel$Pmax_Avg~Fire_Israel$Depth)\
+\
+	Fligner-Killeen test of homogeneity of variances\
+\
+data:  Fire_Israel$Pmax_Avg by Fire_Israel$Depth\
+Fligner-Killeen:med chi-squared = 0.82633, df = 1, p-value =\
+0.3633\
+\
+> #Homogenous variance of all metrics between depths\
+> #FvFm_Avg nearly non-homogenous variance between depths\
+> shapiro.test(Fire_Israel$PAR_Avg[Fire_Israel$Depth=="30"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$PAR_Avg[Fire_Israel$Depth == "30"]\
+W = 0.84486, p-value = 0.1788\
+\
+> shapiro.test(Fire_Israel$PAR_Avg[Fire_Israel$Depth=="10"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$PAR_Avg[Fire_Israel$Depth == "10"]\
+W = 0.92639, p-value = 0.5734\
+\
+> shapiro.test(Fire_Israel$T_Avg[Fire_Israel$Depth=="30"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$T_Avg[Fire_Israel$Depth == "30"]\
+W = 0.55218, p-value = 0.000131\
+\
+> shapiro.test(Fire_Israel$T_Avg[Fire_Israel$Depth=="10"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$T_Avg[Fire_Israel$Depth == "10"]\
+W = 0.86337, p-value = 0.2725\
+\
+> shapiro.test(Fire_Israel$FvFm_Avg[Fire_Israel$Depth=="30"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$FvFm_Avg[Fire_Israel$Depth == "30"]\
+W = 0.93461, p-value = 0.6281\
+\
+> shapiro.test(Fire_Israel$FvFm_Avg[Fire_Israel$Depth=="10"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$FvFm_Avg[Fire_Israel$Depth == "10"]\
+W = 0.91066, p-value = 0.4859\
+\
+> shapiro.test(Fire_Israel$Sigma_Avg[Fire_Israel$Depth=="30"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$Sigma_Avg[Fire_Israel$Depth == "30"]\
+W = 0.95922, p-value = 0.8026\
+\
+> shapiro.test(Fire_Israel$Sigma_Avg[Fire_Israel$Depth=="10"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$Sigma_Avg[Fire_Israel$Depth == "10"]\
+W = 0.91916, p-value = 0.5323\
+\
+> shapiro.test(Fire_Israel$p_Avg[Fire_Israel$Depth=="30"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$p_Avg[Fire_Israel$Depth == "30"]\
+W = 0.90526, p-value = 0.4396\
+\
+> shapiro.test(Fire_Israel$p_Avg[Fire_Israel$Depth=="10"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$p_Avg[Fire_Israel$Depth == "10"]\
+W = 0.95844, p-value = 0.7691\
+\
+> shapiro.test(Fire_Israel$Pmax_Avg[Fire_Israel$Depth=="30"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$Pmax_Avg[Fire_Israel$Depth == "30"]\
+W = 0.8656, p-value = 0.2491\
+\
+> shapiro.test(Fire_Israel$Pmax_Avg[Fire_Israel$Depth=="10"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$Pmax_Avg[Fire_Israel$Depth == "10"]\
+W = 0.89224, p-value = 0.3936\
+\
+> #All metrics normally distributed except T at 30m bc the values are the same\
+> #Use parametric tests\
+> t.test(PAR_Avg~Depth, data = Fire_Israel, mv = 0, alt = "two sided", conf = 0.95, var.eq = F, paired = F)\
+Error in match.arg(alternative) : \
+  'arg' should be one of \'93two.sided\'94, \'93less\'94, \'93greater\'94\
+> t.test(PAR_Avg~Depth, data = Fire_Israel, mv = 0, alt = "two.sided", conf = 0.95, var.eq = F, paired = F)\
+\
+	Welch Two Sample t-test\
+\
+data:  PAR_Avg by Depth\
+t = 7.6964, df = 5.3797, p-value = 0.0004229\
+alternative hypothesis: true difference in means is not equal to 0\
+95 percent confidence interval:\
+ 206.428 407.056\
+sample estimates:\
+mean in group 10 mean in group 30 \
+         826.830          520.088 \
+\
+> t.test(T_Avg~Depth, data = Fire_Israel, mv = 0, alt = "two.sided", conf = 0.95, var.eq = F, paired = F)\
+\
+	Welch Two Sample t-test\
+\
+data:  T_Avg by Depth\
+t = 9.0289, df = 6.9301, p-value = 4.44e-05\
+alternative hypothesis: true difference in means is not equal to 0\
+95 percent confidence interval:\
+ 0.1843925 0.3156075\
+sample estimates:\
+mean in group 10 mean in group 30 \
+           29.83            29.58 \
+\
+> t.test(FvFm_Avg~Depth, data = Fire_Israel, mv = 0, alt = "two.sided", conf = 0.95, var.eq = F, paired = F)\
+\
+	Welch Two Sample t-test\
+\
+data:  FvFm_Avg by Depth\
+t = -5.2728, df = 3.6661, p-value = 0.007876\
+alternative hypothesis: true difference in means is not equal to 0\
+95 percent confidence interval:\
+ -0.1034913 -0.0303887\
+sample estimates:\
+mean in group 10 mean in group 30 \
+         0.41130          0.47824 \
+\
+> t.test(Sigma_Avg~Depth, data = Fire_Israel, mv = 0, alt = "two.sided", conf = 0.95, var.eq = F, paired = F)\
+\
+	Welch Two Sample t-test\
+\
+data:  Sigma_Avg by Depth\
+t = -1.0752, df = 6.71, p-value = 0.3194\
+alternative hypothesis: true difference in means is not equal to 0\
+95 percent confidence interval:\
+ -39.09313  14.80113\
+sample estimates:\
+mean in group 10 mean in group 30 \
+         394.530          406.676 \
+\
+> t.test(p_Avg~Depth, data = Fire_Israel, mv = 0, alt = "two.sided", conf = 0.95, var.eq = F, paired = F)\
+\
+	Welch Two Sample t-test\
+\
+data:  p_Avg by Depth\
+t = 0.69801, df = 6.3903, p-value = 0.5098\
+alternative hypothesis: true difference in means is not equal to 0\
+95 percent confidence interval:\
+ -0.03337866  0.06057866\
+sample estimates:\
+mean in group 10 mean in group 30 \
+          0.1140           0.1004 \
+\
+> t.test(Pmax_Avg~Depth, data = Fire_Israel, mv = 0, alt = "two.sided", conf = 0.95, var.eq = F, paired = F)\
+\
+	Welch Two Sample t-test\
+\
+data:  Pmax_Avg by Depth\
+t = 6.2907, df = 4.1719, p-value = 0.002829\
+alternative hypothesis: true difference in means is not equal to 0\
+95 percent confidence interval:\
+  44.43711 112.66089\
+sample estimates:\
+mean in group 10 mean in group 30 \
+         179.285          100.736 \
+\
+> fligner.test(Fire_Israel$TauAv1_Avg~Fire_Israel$Depth)\
+\
+	Fligner-Killeen test of homogeneity of variances\
+\
+data:  Fire_Israel$TauAv1_Avg by Fire_Israel$Depth\
+Fligner-Killeen:med chi-squared = 0.03713, df = 1, p-value =\
+0.8472\
+\
+> shapiro.test(Fire_Israel$TauAv1_Avg[Fire_Israel$Depth=="30"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$TauAv1_Avg[Fire_Israel$Depth == "30"]\
+W = 0.88894, p-value = 0.3518\
+\
+> shapiro.test(Fire_Israel$TauAv1_Avg[Fire_Israel$Depth=="10"])\
+\
+	Shapiro-Wilk normality test\
+\
+data:  Fire_Israel$TauAv1_Avg[Fire_Israel$Depth == "10"]\
+W = 0.87106, p-value = 0.3018\
+\
+> t.test(TauAv1_Avg~Depth, data = Fire_Israel, mv = 0, alt = "two.sided", conf = 0.95, var.eq = F, paired = F)\
+\
+	Welch Two Sample t-test\
+\
+data:  TauAv1_Avg by Depth\
+t = -0.55405, df = 6.9991, p-value = 0.5968\
+alternative hypothesis: true difference in means is not equal to 0\
+95 percent confidence interval:\
+ -92.29515  57.25515\
+sample estimates:\
+mean in group 10 mean in group 30 \
+          769.80           787.32 \
+\
+#Sigma-PSII\'92 (A2) box plot\
+> boxplot(Sigma_Avg~Depth, data = Fire_Israel, ylab = "Depth (m)", xlab = expression(paste("\uc0\u963 PSII' (\'c5"^"2"*")")), horizontal = TRUE, col = "#FFB6C1", xlim = c(2.5, 0.5))\
+\
+#p (dimensionless) boxplot\
+> boxplot(p_Avg~Depth, data = Fire_Israel, ylab = "Depth (m)", xlab = expression(paste("p")), horizontal = TRUE, col = "#FFB6C1", xlim = c(2.5, 0.5))\
+\
+#Pmax (e/s/PSII) boxplot\
+> boxplot(Pmax_Avg~Depth, data = Fire_Israel, ylab = "Depth (m)", xlab = expression(paste("P"[max]*" (e/s/PSII)")), horizontal = TRUE, col = "#FFB6C1", xlim = c(2.5, 0.5))\
+\
+#Fv/fm boxplot\
+> boxplot(FvFm_Avg~Depth, data = Fire_Israel, ylab = "Depth (m)", xlab = expression(paste("F"[v]*"/F"[m])), horizontal = TRUE, col = "#FFB6C1", xlim = c(2.5, 0.5))\
+\
+#PAR boxplot\
+>boxplot(PAR_Avg~Depth, data = Fire_Israel, ylab = "Depth (m)", xlab = expression(paste("PAR (\uc0\u956 E/m"^2*"/s)")), horizontal = TRUE, col = "#7FFFD4", xlim = c(2.5, 0.5))\
+\
+#CSIA boxplot\
+>o = ordered(Cladocora_CSIA_AA3$Compartment, levels = c("Sub-Fossil", "Skeleton", "Host", "Symbiont"))\
+>boxplot(C_Valine~o, data = Cladocora_CSIA_AA3, xlab = "Compartment", ylab = expression(paste("\uc0\u948 13C (\'89)")), col = c("#98F5FF", "#1874CD", "#FF7256", "#7FFFD4"), cex.axis = 0.9, ylim = c(-35,-5), main = "Val-C")\
+>boxplot(N_Alanine~o, data = Cladocora_CSIA_AA3, xlab = "Compartment", ylab = expression(paste("\uc0\u948 15N (\'89)")), col = c("#98F5FF", "#1874CD", "#FF7256", "#7FFFD4"), cex.axis = 0.9, ylim = c(-20,20), main = "Ala-N")\
+>boxplot(TP~o, data = Cladocora_CSIA_AA3, xlab = "Compartment", ylab = expression(paste("TP"[(Glu-Phe)])), col = c("#98F5FF", "#1874CD", "#FF7256", "#7FFFD4"), cex.axis = 0.9, ylim = c(1.5,3.5), main = "TP")}
