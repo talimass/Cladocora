@@ -1,6 +1,6 @@
-##Coral archaeology: how corals help explain the Holocene
+# Coral archaeology: how corals help explain the Holocene
 
-Tali Mass, Jeana Drake, Stephane Martinez,  Jarosław Stolarski, Jacob Sharvit
+### Tali Mass, Jeana Drake, Stephane Martinez,  Jarosław Stolarski, Jacob Sharvit
 
 
 
