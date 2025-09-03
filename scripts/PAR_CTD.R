@@ -35,9 +35,9 @@ p <- ggplot(plot_df, aes(x = PAR, y = Depth)) +
     labels = scales::comma_format()  # show plain numbers
   ) +
   labs(
-    title = paste0("PAR Station 100 ", format(date_to_plot, "%m/%Y")),
-    x = NULL,
-    y = NULL
+    #title = paste0("PAR Station 100 ", format(date_to_plot, "%m/%Y")),
+    x = expression("PAR ("*mu*"mol m"^-2*" s"^-1*")"),
+    y = "Depth (m)"
   ) +
   theme_bw(base_size = 12) +
   theme(
